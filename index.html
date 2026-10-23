@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f1">
+  <title>LearnMap — Python Beginner Essentials</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="LearnMap home">
+      <span class="brand-mark">↗</span>
+      <span class="brand-name">LearnMap <small>LEARNING STUDIO</small></span>
+    </a>
+    <div class="top-actions">
+      <button class="top-link" id="flashcardsBtn"><span class="tool-icon">▤</span> Flashcards</button>
+      <button class="top-link" id="studyBtn"><span class="tool-icon">♧</span> Study guide</button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="heading">
+      <div>
+        <p class="eyebrow">YOUR LEARNING MAP</p>
+        <h1>Python <span>Beginner Essentials</span> <span class="more">···</span></h1>
+        <p class="subheading">Click a coloured topic to open its subtopics. Choose a subtopic to read the notes.</p>
+      </div>
+      <div class="map-actions">
+        <button class="small-btn" id="expandAllBtn">Expand all</button>
+        <button class="small-btn" id="resetMapBtn">Reset map</button>
+      </div>
+    </section>
+
+    <div class="map-toolbar">
+      <span><i class="status-dot"></i> Interactive mind map</span>
+      <span id="progressLabel">0 of 10 topics explored</span>
+    </div>
+
+    <section class="map-viewport" id="mapViewport" aria-label="Python learning mind map">
+      <div class="map-canvas" id="mapCanvas">
+        <svg id="branchSvg" aria-hidden="true"></svg>
+        <button class="root-node" id="rootNode">
+          <span class="root-symbol">⌘</span>
+          <span class="root-text"><strong>Python Learning Notes</strong><small>From Zero to Your First Program</small></span>
+        </button>
+        <div id="topicNodes" class="topic-nodes"></div>
+        <article id="lessonCard" class="lesson-card" aria-live="polite">
+          <div class="lesson-card-top">
+            <span class="lesson-kicker" id="lessonKicker">START HERE</span>
+            <button id="closeLessonBtn" class="close-card" aria-label="Close notes">×</button>
+          </div>
+          <h2 id="lessonTitle">How to Use These Notes</h2>
+          <p id="lessonText">1. READ — Understand one idea.<br>2. TYPE — Try the example yourself.<br>3. CHANGE — Edit a value and observe.<br>4. EXPLAIN — Describe what the code does.</p>
+          <div class="example-label">EXAMPLE</div>
+          <pre class="code-sample" id="lessonCode">print("Hello, world!")
+print(12)
+print(3 + 4)
+# This is a comment
+print("Practice every day")</pre>
+          <p class="lesson-tip" id="lessonTip">Tip: Read the notes, then try the code in your own Python editor.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="map-footer">
+      <span>Tap a topic again to collapse its branch.</span>
+      <span>Works on phone, tablet and laptop</span>
+    </footer>
+  </main>
+
+  <dialog id="flashcardsDialog" class="modal">
+    <form method="dialog"><button class="modal-close" aria-label="Close">×</button></form>
+    <p class="eyebrow">QUICK REVISION</p>
+    <h2>Python Flashcards</h2>
+    <div class="flashcard">
+      <p class="flashcard-label">QUESTION</p>
+      <h3 id="flashQuestion">What does print() do?</h3>
+      <p id="flashAnswer" class="flash-answer hidden">It displays text or values in the output.</p>
+    </div>
+    <div class="modal-actions"><button class="small-btn" id="flipCardBtn">Show answer</button><button class="primary-btn" id="nextCardBtn">Next card →</button></div>
+  </dialog>
+
+  <dialog id="studyDialog" class="modal">
+    <form method="dialog"><button class="modal-close" aria-label="Close">×</button></form>
+    <p class="eyebrow">HOW TO STUDY</p><h2>Use the map in 4 steps</h2>
+    <ol class="study-steps">
+      <li><strong>READ</strong> — Understand one idea.</li>
+      <li><strong>TYPE</strong> — Try the example in your editor.</li>
+      <li><strong>CHANGE</strong> — Edit a value and see what changes.</li>
+      <li><strong>EXPLAIN</strong> — Explain the code in your own words.</li>
+    </ol>
+    <button class="primary-btn full-width" id="startStudyBtn">Start learning</button>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
